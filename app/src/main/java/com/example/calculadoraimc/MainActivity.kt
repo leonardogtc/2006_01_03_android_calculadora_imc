@@ -71,11 +71,11 @@ class MainActivity : AppCompatActivity() {
 
                     textResult.visibility = View.VISIBLE
                 } else {
-                    Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, R.string.msg_preenchimento_obrigatorio, Toast.LENGTH_SHORT).show()
 
                 }
             } catch (e: NumberFormatException) {
-                Toast.makeText(this, "Digite um peso válido", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.msg_pelo_valido, Toast.LENGTH_SHORT).show()
             }
 
 
