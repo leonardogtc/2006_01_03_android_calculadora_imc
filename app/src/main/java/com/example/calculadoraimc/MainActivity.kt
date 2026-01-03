@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.SeekBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -54,20 +55,30 @@ class MainActivity : AppCompatActivity() {
             editWeight.text.clear()
             seekbarHeight.progress = 0
             textHeightValue.visibility = View.GONE
+            textResult.visibility = View.GONE
         }
 
         buttonCalculate.setOnClickListener {
-            var weight = editWeight.text.toString()
-            var height = seekbarHeight.progress
+            try {
+                var weight = editWeight.text.toString()
+                var height = seekbarHeight.progress
 
-            if (weight.isNotEmpty() && height > 0) {
-                var imc = weight.toDouble() / ((height / 100.0) * (height / 100.0))
-                textResult.text = imc.toString()
-                textResult.visibility = View.VISIBLE
-            } else {
-                textResult.text = "Preencha todos os campos"
+                if (weight.isNotEmpty() && height > 0) {
+                    var imc = weight.toDouble() / ((height / 100.0) * (height / 100.0))
+                    imc = String.format("%.2f", imc).toDouble()
 
+                    textResult.text = imc.toString()
+
+                    textResult.visibility = View.VISIBLE
+                } else {
+                    Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
+
+                }
+            } catch (e: NumberFormatException) {
+                Toast.makeText(this, "Digite um peso válido", Toast.LENGTH_SHORT).show()
             }
+
+
         }
 
 
