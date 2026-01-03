@@ -2,9 +2,11 @@ package com.example.calculadoraimc
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.SeekBar
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -26,10 +28,30 @@ class MainActivity : AppCompatActivity() {
         val seekbarHeight = findViewById<SeekBar>(R.id.seekbar_height)
         val buttonCalculate = findViewById<Button>(R.id.button_calculate)
         val buttonClear = findViewById<Button>(R.id.button_clear)
+        var textHeightValue = findViewById<TextView>(R.id.text_height_value)
+
+        seekbarHeight.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(
+                seekBar: SeekBar?,
+                progress: Int,
+                fromUser: Boolean
+            ) {
+                textHeightValue.text = progress.toString() + " cm"
+                textHeightValue.visibility = View.VISIBLE
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+            }
+        })
+
 
         buttonClear.setOnClickListener {
             editWeight.text.clear()
-            seekbarHeight.progress = 120
+            seekbarHeight.progress = 0
+            textHeightValue.visibility = View.GONE
         }
 
         buttonCalculate.setOnClickListener {
