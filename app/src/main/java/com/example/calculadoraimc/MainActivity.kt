@@ -29,6 +29,8 @@ class MainActivity : AppCompatActivity() {
         val buttonCalculate = findViewById<Button>(R.id.button_calculate)
         val buttonClear = findViewById<Button>(R.id.button_clear)
         var textHeightValue = findViewById<TextView>(R.id.text_height_value)
+        var textResult = findViewById<TextView>(R.id.text_result)
+
 
         seekbarHeight.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(
@@ -55,15 +57,18 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonCalculate.setOnClickListener {
+            var weight = editWeight.text.toString()
+            var height = seekbarHeight.progress
 
+            if (weight.isNotEmpty() && height > 0) {
+                var imc = weight.toDouble() / ((height / 100.0) * (height / 100.0))
+                textResult.text = imc.toString()
+                textResult.visibility = View.VISIBLE
+            } else {
+                textResult.text = "Preencha todos os campos"
+
+            }
         }
-
-
-
-
-
-
-
 
 
     }
