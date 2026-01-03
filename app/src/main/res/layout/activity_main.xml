@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <TextView
@@ -14,6 +15,7 @@
         android:layout_marginTop="50dp"
         android:gravity="center"
         android:text="Calculadora IMC"
+        android:textColor="@color/white"
         android:textSize="48sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -26,7 +28,10 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="64dp"
         android:layout_marginRight="16dp"
+        android:backgroundTint="@color/white"
         android:hint="Peso"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_title" />
@@ -38,6 +43,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="32dp"
         android:text="Altura <cm)"
+        android:textColor="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit_weight"
 
@@ -48,6 +54,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
+        android:progressBackgroundTint="@color/white"
+        android:progressTint="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_height" />
@@ -57,22 +65,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="130dp"
-        app:layout_constraintRight_toLeftOf="@id/button_calculate"
+        android:backgroundTint="#55BA05"
+        android:paddingLeft="48dp"
+        android:paddingRight="48dp"
         android:text="Limpar"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/button_calculate" />
 
     <Button
         android:id="@+id/button_calculate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="130dp"
-        app:layout_constraintLeft_toRightOf="@id/button_clear"
+        android:backgroundTint="#55BA05"
+        android:paddingLeft="48dp"
+        android:paddingRight="48dp"
         android:text="Calcular"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/button_clear"
         app:layout_constraintRight_toRightOf="parent"
 
         />
+    
+    <View
+        android:layout_width="0dp"
+        android:layout_height="145dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/wave"
+        android:backgroundTint="#2AD57A"
+        app:layout_constraintRight_toRightOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
